@@ -505,7 +505,7 @@
 #X obj 170 429 spoggle 3;
 #X obj 246 429 spoggle 4;
 #X obj 79 41 hradio 15 1 0 4 empty empty empty 0 -8 0 10 -262144 -1
--1 3;
+-1 0;
 #X obj 78 155 + 1;
 #X floatatom 78 180 5 0 0 0 - - -;
 #X obj 73 -36 r cycle-start;
@@ -547,9 +547,9 @@
 #X obj 234 67 r s-recycling;
 #X obj 436 64 r t-recycling;
 #X obj 7 89 unpack f f f, f 18;
-#X msg 7 220 127;
-#X msg 68 153 123;
-#X msg 130 187 128;
+#X msg 7 220 0.401563;
+#X msg 68 153 0.733333;
+#X msg 130 187 0.918331;
 #X obj 234 112 unpack f f f, f 18;
 #X msg 234 232 115;
 #X msg 295 176 105;
@@ -837,14 +837,29 @@
 #X obj 527 836 outlet~;
 #X obj 603 837 outlet~;
 #X obj 679 837 outlet~;
+#X obj 707 287 del 100;
+#X obj 745 258 del 100;
+#X obj 778 231 del 100;
+#X obj 816 202 del 100;
+#X obj 5 189 onebang;
+#X obj 71 189 onebang;
+#X obj 137 191 onebang;
+#X obj 203 191 onebang;
+#X obj 591 115 r cycle-start;
+#X obj 591 140 t b b b b;
+#X obj 1205 148 r cycle-next;
+#X msg 1349 271 set 0;
+#X obj 1205 173 t b b, f 21;
+#X obj 1205 258 t b b b b;
+#X obj 1349 296 t a a a a;
 #X connect 0 0 5 0;
 #X connect 1 0 6 0;
 #X connect 2 0 7 0;
 #X connect 3 0 8 0;
-#X connect 4 0 9 0;
-#X connect 4 1 10 0;
-#X connect 4 2 11 0;
-#X connect 4 3 12 0;
+#X connect 4 0 64 0;
+#X connect 4 1 65 0;
+#X connect 4 2 66 0;
+#X connect 4 3 67 0;
 #X connect 5 0 4 0;
 #X connect 6 0 4 0;
 #X connect 7 0 4 0;
@@ -892,14 +907,14 @@
 #X connect 30 0 42 0;
 #X connect 31 0 43 0;
 #X connect 32 0 44 0;
-#X connect 33 0 19 0;
-#X connect 33 1 51 0;
-#X connect 34 0 22 0;
-#X connect 34 1 52 0;
-#X connect 35 0 28 0;
-#X connect 35 1 53 0;
-#X connect 36 0 25 0;
-#X connect 36 1 54 0;
+#X connect 33 0 60 0;
+#X connect 33 1 19 0;
+#X connect 34 0 61 0;
+#X connect 34 1 22 0;
+#X connect 35 0 62 0;
+#X connect 35 1 28 0;
+#X connect 36 0 63 0;
+#X connect 36 1 25 0;
 #X connect 37 0 41 1;
 #X connect 38 0 42 1;
 #X connect 39 0 43 1;
@@ -922,30 +937,55 @@
 #X connect 55 1 52 0;
 #X connect 55 2 53 0;
 #X connect 55 3 54 0;
+#X connect 60 0 51 0;
+#X connect 61 0 52 0;
+#X connect 62 0 53 0;
+#X connect 63 0 54 0;
+#X connect 64 0 9 0;
+#X connect 65 0 10 0;
+#X connect 66 0 11 0;
+#X connect 67 0 12 0;
+#X connect 68 0 69 0;
+#X connect 69 0 64 1;
+#X connect 69 1 65 1;
+#X connect 69 2 66 1;
+#X connect 69 3 67 1;
+#X connect 70 0 72 0;
+#X connect 71 0 74 0;
+#X connect 72 0 73 0;
+#X connect 72 1 71 0;
+#X connect 73 0 51 0;
+#X connect 73 1 52 0;
+#X connect 73 2 53 0;
+#X connect 73 3 54 0;
+#X connect 74 0 51 0;
+#X connect 74 1 52 0;
+#X connect 74 2 53 0;
+#X connect 74 3 54 0;
 #X restore 981 11 pd voices;
-#N canvas 0 59 1920 983 mixer 0;
-#X obj 745 88 inlet~;
-#X obj 801 87 inlet~;
-#X obj 859 87 inlet~;
-#X obj 915 86 inlet~;
-#X obj 971 119 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+#N canvas 0 59 1920 983 mixer 1;
+#X obj 339 111 inlet~;
+#X obj 395 110 inlet~;
+#X obj 453 110 inlet~;
+#X obj 509 109 inlet~;
+#X obj 565 142 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
-#X obj 1002 119 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+#X obj 596 142 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
-#X obj 1031 119 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+#X obj 625 142 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
-#X obj 1064 120 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+#X obj 658 143 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
-#X obj 745 256 expr~ $v1 * $f5 \; $v2 * $f6 \; $v3 * $f7 \; $v4 * $f8
+#X obj 339 279 expr~ $v1 * $f5 \; $v2 * $f6 \; $v3 * $f7 \; $v4 * $f8
 \;, f 57;
-#X obj 745 326 expr~ $v1 + $v2 + $v3 + $v4, f 57;
-#X obj 675 38 inlet~;
-#X obj 674 367 expr~ ($v1 * $f3) + ($v2 * $f4);
-#X obj 1191 236 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+#X obj 339 349 expr~ $v1 + $v2 + $v3 + $v4, f 57;
+#X obj 269 61 inlet~;
+#X obj 268 390 expr~ ($v1 * $f3) + ($v2 * $f4);
+#X obj 785 259 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
-#X obj 1224 236 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+#X obj 818 259 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
-#X obj 674 392 outlet~;
+#X obj 268 415 outlet~;
 #X connect 0 0 8 0;
 #X connect 1 0 8 1;
 #X connect 2 0 8 2;
@@ -965,6 +1005,7 @@
 #X connect 13 0 11 3;
 #X restore 933 43 pd mixer;
 #X f 16;
+#X obj 933 68 output~;
 #X connect 0 0 3 0;
 #X connect 1 0 4 0;
 #X connect 2 0 76 0;
@@ -1082,6 +1123,7 @@
 #X connect 88 1 89 2;
 #X connect 88 2 89 3;
 #X connect 88 3 89 4;
+#X connect 89 0 90 0;
 #X restore 229 596 pd artefacts;
 #X f 87;
 #X floatatom 1133 41 5 0 0 0 - - -;
